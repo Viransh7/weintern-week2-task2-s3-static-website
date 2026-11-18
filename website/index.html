@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+  index.html - Home page of the static site
+  WeIntern Pvt Ltd | Cloud Computing Internship | Week 2, Task 2
+  Hosted on AWS S3 static website hosting (optionally served through CloudFront).
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Static website hosted on AWS S3 - WeIntern Week 2 Task 2">
+  <title>WeIntern | Static Site on AWS S3</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top navigation bar -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logo.svg" alt="Cloud logo" width="32" height="32">
+      <span>WeIntern Cloud</span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero">
+      <p class="eyebrow">Week 2 · Task 2</p>
+      <h1>Static website hosting on <span class="accent">AWS S3</span></h1>
+      <p class="lead">
+        This page is served straight from an S3 bucket. No servers to patch,
+        no instances to run: just files, a bucket policy and a website endpoint.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#how">See the setup</a>
+        <!-- Deliberately broken link: demonstrates the custom error.html page -->
+        <a class="btn ghost" href="this-page-does-not-exist.html">Test the 404 page</a>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="section">
+      <h2>About this project</h2>
+      <p>
+        Built as part of the WeIntern Cloud Computing internship. The goal was to
+        deploy a static site to the cloud, configure public read access with a
+        bucket policy, and set custom index and error documents.
+      </p>
+    </section>
+
+    <!-- Tech stack cards -->
+    <section id="stack" class="section">
+      <h2>Tech stack</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Amazon S3</h3>
+          <p>Stores the HTML, CSS, JS and image files and serves them through its static website endpoint.</p>
+        </article>
+        <article class="card">
+          <h3>Bucket policy</h3>
+          <p>Grants public <code>s3:GetObject</code> on every object, and nothing else.</p>
+        </article>
+        <article class="card">
+          <h3>CloudFront</h3>
+          <p>Optional CDN layer that caches the site at edge locations and adds HTTPS.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Request flow -->
+    <section id="how" class="section">
+      <h2>How a request is served</h2>
+      <ol class="flow">
+        <li><strong>Browser</strong> requests the site URL.</li>
+        <li><strong>CloudFront</strong> (optional) returns a cached copy, or fetches from S3.</li>
+        <li><strong>S3 website endpoint</strong> checks the bucket policy and returns the object.</li>
+        <li>Missing paths return <strong>error.html</strong> with a 404 status.</li>
+      </ol>
+    </section>
+
+    <!-- Live details filled in by js/main.js -->
+    <section class="section info">
+      <h2>Visit details</h2>
+      <dl>
+        <dt>Served from</dt><dd id="host">-</dd>
+        <dt>Protocol</dt><dd id="protocol">-</dd>
+        <dt>Your local time</dt><dd id="clock">-</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year">2026</span> WeIntern Pvt Ltd · Cloud Computing Internship</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

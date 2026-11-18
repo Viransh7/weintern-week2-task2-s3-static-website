@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+  error.html - Custom error document
+  S3 returns this page (with HTTP 404) for any path that does not exist in the bucket.
+  Configured under: Bucket > Properties > Static website hosting > Error document.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page not found | WeIntern</title>
+  <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+  <!-- Absolute paths: this page can be returned for nested URLs like /a/b/c -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="error-page">
+  <main class="error-box">
+    <img src="/images/logo.svg" alt="Cloud logo" width="72" height="72">
+    <h1>404</h1>
+    <p class="lead">This page drifted off into the cloud.</p>
+    <p>The file you requested is not in the S3 bucket. This custom error page is served by S3 static website hosting.</p>
+    <a class="btn primary" href="/index.html">Back to home</a>
+  </main>
+</body>
+</html>

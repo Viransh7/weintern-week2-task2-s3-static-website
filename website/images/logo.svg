@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cloud logo">
+  <!-- Simple cloud with an upward arrow: "deployed to the cloud" -->
+  <path d="M20 46h26a10 10 0 0 0 1.5-19.9A14 14 0 0 0 20.3 22 12 12 0 0 0 20 46z" fill="#f59e0b"/>
+  <path d="M32 40V26m-6 6 6-6 6 6" stroke="#0f172a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
